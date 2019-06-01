@@ -4,12 +4,15 @@ import java.util.Calendar;
 
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Task {
 	private Long id;
 	
 	@Size(min = 5, message = "A descrição deve ter pelo menos 5 caracteres")
 	private String descricao;
 	private boolean finalizada;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataFinalizacao;
 	
 	public Long getId() {
