@@ -2,11 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Get Tasks</title>
-	<head>
-		<script type="text/javascript" src="resources/js/jquery.js"></script>
-	</head>
+	<script type="text/javascript" src="resources/js/jquery.js"></script>
+	<link type="text/css" href="resources/css/tasks.css" rel="stylesheet" />
 </head>
 
 <body>

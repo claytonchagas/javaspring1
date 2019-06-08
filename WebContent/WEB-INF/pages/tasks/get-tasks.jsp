@@ -2,8 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Get Tasks</title>
+	<link type="text/css" href="resources/css/tasks.css" rel="stylesheet" />
 </head>
 <body>
 	<a href="novatask">Inserir nova <i>task</i></a>

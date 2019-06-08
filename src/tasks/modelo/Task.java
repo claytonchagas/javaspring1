@@ -2,16 +2,32 @@ package tasks.modelo;
 
 import java.util.Calendar;
 
+//import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+//import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+@Entity
+@Table(name = "tasks2")
 public class Task {
+	
+	@Id
+	@GeneratedValue
 	private Long id;
 	
 	@Size(min = 5, message = "A descrição deve ter pelo menos 5 caracteres")
 	private String descricao;
 	private boolean finalizada;
+	
+//	@Column(name="dataFinalizacao", nullable = true) //opcional
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataFinalizacao;
 	
