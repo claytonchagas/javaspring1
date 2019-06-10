@@ -21,7 +21,7 @@ public class AutenticadorInterceptor extends HandlerInterceptorAdapter {
 			return true;
 		}
 
-		response.sendRedirect("loginForm");
+		response.sendRedirect("formlogin");
 		return false;
 	}
 }

@@ -5,7 +5,7 @@ import javax.persistence.Persistence;
 
 public class BuildTables {
 	public static void main(String[] args){
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("tasks2");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("tasks9");
 		factory.close();
 	}
 }
