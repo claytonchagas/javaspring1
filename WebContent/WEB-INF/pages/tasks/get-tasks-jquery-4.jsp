@@ -3,18 +3,21 @@
 <html>
 <head>
 	<script type="text/javascript" src="resources/js/jquery.js"></script>
+	<script type="text/javascript" src="resources/js/jquery-ui.js"></script>
 	<link type="text/css" href="resources/css/tasks.css" rel="stylesheet" />
-</head>
-
-<body>
+	
 	<script type="text/javascript">
 		function finalizar(id) {
-			$.post("finalizatask", {'id' : id}, function() {
-				alert("Task Finalizada");
-				location.reload(true);
+			$.post("finalizatask", {'id' : id}, function(response) {
+				$("#task_"+id).html(response);
+				alert(response);
 			});
 		}
 	</script>
+</head>
+
+<body>
+
 	<a href="novatask">Inserir nova <i>task</i></a>
 	<br />
 	<br />
@@ -28,11 +31,11 @@
 			<th>Ação 2</th>
 		</tr>
 		<c:forEach items="${tasks}" var="task">
-			<tr>
+			<tr id="task_${task.id}" bgcolor="#${task.id % 2 == 0 ? 'ffffff' : 'F0F8FF'}">
 				<td>${task.id}</td>
 				<td>${task.descricao}</td>
 				<c:if test="${task.finalizada eq false}">
-					<td id="task_${task.id}">
+					<td>
 						<a href="#" onclick="finalizar(${task.id})">
 							Finalizar!
 						</a>

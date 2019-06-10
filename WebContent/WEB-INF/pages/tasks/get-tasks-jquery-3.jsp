@@ -3,18 +3,22 @@
 <html>
 <head>
 	<script type="text/javascript" src="resources/js/jquery.js"></script>
+	<script type="text/javascript" src="resources/js/jquery-ui.js"></script>
 	<link type="text/css" href="resources/css/tasks.css" rel="stylesheet" />
-</head>
-
-<body>
+	
 	<script type="text/javascript">
 		function finalizar(id) {
-			$.post("finalizatask", {'id' : id}, function() {
-				alert("Task Finalizada");
-				location.reload(true);
+			$.post("finalizatask", {'id' : id}, function(response) {
+				$("#task_"+id).html("Finalizada");
+				$("#task_data_"+id).html(response)
+				alert(response);
 			});
 		}
 	</script>
+</head>
+
+<body>
+
 	<a href="novatask">Inserir nova <i>task</i></a>
 	<br />
 	<br />
@@ -41,7 +45,7 @@
 				<c:if test="${task.finalizada eq true}">
 					<td>Finalizada</td>
 				</c:if>
-				<td><fmt:formatDate value="${task.dataFinalizacao.time}"
+				<td id="task_data_${task.id}"><fmt:formatDate value="${task.dataFinalizacao.time}"
 						pattern="dd/MM/yyyy" /></td>
 				<td><a href="excluitask?id=${task.id}">Excluir</a></td>
 				<td><a href="buscatask?id=${task.id}">Editar</a></td>

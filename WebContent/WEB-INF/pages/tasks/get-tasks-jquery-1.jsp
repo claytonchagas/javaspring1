@@ -10,7 +10,8 @@
 	<script type="text/javascript">
 		function finalizar(id) {
 			$.post("finalizatask", {'id' : id}, function() {
-				$("#task_"+id).html("Finalizada")
+				alert("Task Finalizada");
+				$("#task_"+id).html("Finalizada");
 			});
 		}
 	</script>
