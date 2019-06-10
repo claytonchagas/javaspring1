@@ -1,7 +1,5 @@
 package tasks.jpa;
 
-import java.util.Calendar;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -9,18 +7,20 @@ import javax.persistence.Persistence;
 //import tasks.modelo.Task;
 import tasks.modelo.Task2;
 
-public class InsertTask {
+public class UpDateTask {
 	public static void main(String[] args) {
 		Task2 task = new Task2();
-		task.setDescricao("estudar muito JPA e Hibernate");
-		task.setFinalizada(true);
-		task.setDataFinalizacao(Calendar.getInstance());
+		
+		task.setId(2L);
+		task.setDescricao("estudar muito mais JPA e Hibernate");
+		task.setFinalizada(false);
+		task.setDataFinalizacao(null);
 		
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("tasks9");
 		EntityManager manager = factory.createEntityManager();
 		
 		manager.getTransaction().begin();
-		manager.persist(task);
+		manager.merge(task);
 		manager.getTransaction().commit();
 		
 		System.out.println("Testando JPA e Hibernate");
