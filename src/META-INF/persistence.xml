@@ -10,6 +10,8 @@
         </description>
 
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		
+		<class>tasks.modelo.Task</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver"

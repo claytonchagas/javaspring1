@@ -4,15 +4,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-//import tasks.modelo.Task;
-import tasks.modelo.Task2;
+import tasks.modelo.Task;
+//import tasks.modelo.Task2;
 
 public class UpDateTask {
 	public static void main(String[] args) {
-		Task2 task = new Task2();
+		Task task = new Task();
 		
 		task.setId(2L);
-		task.setDescricao("estudar muito mais JPA e Hibernate");
+		task.setDescricao("estudar muito mais JPA2 e Hibernate");
 		task.setFinalizada(false);
 		task.setDataFinalizacao(null);
 		

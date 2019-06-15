@@ -1,5 +1,7 @@
 package tasks.controller;
 
+import javax.transaction.Transactional;
+
 //import java.io.IOException;
 //import java.util.Date;
 //import java.text.SimpleDateFormat;
@@ -8,30 +10,43 @@ package tasks.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+//import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.servlet.ModelAndView;
 //import org.springframework.web.bind.annotation.ResponseBody;
 
-import tasks.dao.TaskDao;
+//import tasks.dao.TaskDao;
+import tasks.dao.TaskDao2;
 import tasks.modelo.Task;
+//import tasks.modelo.Task2;
 
+@Transactional
 @Controller
 public class TasksController {
-
-	private final TaskDao dao;
-
+	
 	@Autowired
-	public TasksController(TaskDao dao) {
-		//	public TasksController() {
-		//		dao = new TaskDao();
-		this.dao = dao;
+	@Qualifier("jpaTaskDao2")
+//	@Qualifier("taskDao")
+	TaskDao2 dao;
 
-	}
-
-
+////	private final TaskDao dao;
+//	private final TaskDao2 dao;
+//
+//	@Autowired
+////	@Qualifier("jpaTaskDao2")
+////	public TasksController(TaskDao dao) {
+//	public TasksController(TaskDao2 dao) {
+//		//	public TasksController() {
+//		//		dao = new TaskDao();
+//		this.dao = dao;
+//
+//	}
+	
 	@RequestMapping("novatask")
 	public String form() {
 		return "tasks/form-tasks";
@@ -46,6 +61,7 @@ public class TasksController {
 		//		if (task.getDescricao() == null || task.getDescricao().equals("")) {
 		//			return "tasks/form-tasks";
 		//		}
+		System.out.println(task.getDescricao());
 		dao.inserir(task);
 		return "tasks/task-cadastrada";
 	}

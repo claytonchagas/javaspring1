@@ -5,6 +5,7 @@ import java.util.Calendar;
 //import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 //import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -18,11 +19,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Task {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	@Size(min = 5, message = "A descrição deve ter pelo menos 5 caracteres")
 	private String descricao;
+	
 	private boolean finalizada;
 	
 //	@Column(name="dataFinalizacao", nullable = true) //opcional

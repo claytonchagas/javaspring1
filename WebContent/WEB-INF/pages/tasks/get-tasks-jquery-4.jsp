@@ -51,5 +51,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<br /><br /><br /><br />
+	<h4><a href="logout">Logout</a></h4>
 </body>
 </html>

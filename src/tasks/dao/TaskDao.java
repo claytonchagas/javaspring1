@@ -18,7 +18,8 @@ import org.springframework.stereotype.Repository;
 //import org.apache.commons.dbcp2.BasicDataSource;
 
 @Repository
-public class TaskDao {
+public class TaskDao implements TaskDao2 {
+//public class TaskDao {
 
 	private final Connection connection;
 

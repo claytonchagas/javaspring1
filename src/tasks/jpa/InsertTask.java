@@ -6,12 +6,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-//import tasks.modelo.Task;
-import tasks.modelo.Task2;
+import tasks.modelo.Task;
+//import tasks.modelo.Task2;
 
 public class InsertTask {
 	public static void main(String[] args) {
-		Task2 task = new Task2();
+//		Task2 task = new Task2();
+		Task task = new Task();
 		task.setDescricao("estudar muito JPA e Hibernate");
 		task.setFinalizada(true);
 		task.setDataFinalizacao(Calendar.getInstance());
